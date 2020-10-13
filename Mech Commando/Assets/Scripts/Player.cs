@@ -9,7 +9,7 @@ public class Player : MovingEntity
     int maxArmor;
     public int currentEnergy;
     readonly int maxEnergy = 100;
-    int healthPacksQt;
+    public int healthPacksQt;
     public readonly int healthPacksQtMax = 3;
     bool alive;
     public bool inControl;
@@ -66,7 +66,7 @@ public class Player : MovingEntity
 
     public bool isAlive() => alive;
     public int Armor() => armor;
-    
+
     public void spendEnergy(int newEnergy)
     {
         currentEnergy = newEnergy;
@@ -89,7 +89,8 @@ public class Player : MovingEntity
                     onEnergyUpdate(currentEnergy, maxEnergy);
                     EnergyRecoverTimer = 0;
                 }
-            } else
+            }
+            else
             {
                 if (EnergyRecoverDelayTimer < EnergyRecoverDelay) EnergyRecoverDelayTimer += Time.deltaTime;
                 else { canRecoverEnergy = true; }
